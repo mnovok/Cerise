@@ -1,2 +1,2 @@
 # Cerise
- Project made for homework
+ Project made as homework for the course Web Programming 
