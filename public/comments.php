@@ -1,5 +1,11 @@
 <?php 
 
+
+function get_com(){
+
+    
+$con = mysqli_connect("localhost","root","","cerise") or die("Connection was not established");
+
     $get_id = $_GET['post_id'];
 
     $get_com = "SELECT * FROM comments WHERE post_ID = '$get_id' ORDER BY 1 DESC";
@@ -26,5 +32,5 @@
             </div>
         ";
     }
-
+}
 ?>

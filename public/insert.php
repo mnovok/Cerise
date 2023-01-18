@@ -14,6 +14,7 @@ if(isset($_POST['sub']))
     $tmp_dir = $_FILES['upload_image']['tmp_name'];
     $imgSize = $_FILES['upload_image']['size']; 
     $content = htmlentities($_POST['content']); 
+    $username = htmlentities($_POST['username']);
 
     if(!empty($imgFile))
     {
@@ -52,7 +53,7 @@ if(isset($_POST['sub']))
  // if no error occured, continue ....
  if(!isset($errMSG))
  {
-    $que = "INSERT INTO posts(path, description) VALUES('" . $coverpic . "', '$content')";
+    $que = "INSERT INTO posts(path, description, username) VALUES('" . $coverpic . "', '" . $content . "' , '" . $username ."')";
 
     if(mysqli_query($con, $que))
     {

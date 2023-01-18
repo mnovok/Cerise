@@ -4,6 +4,19 @@ $con = mysqli_connect("localhost","root","","cerise") or die("Connection was not
 
 function get_posts(){
 	global $con;
+
+	//get comments
+    $get_id = $_GET['post_id'];
+
+    $get_com = "SELECT * FROM comments WHERE post_ID = '$get_id' ORDER BY 1 DESC";
+
+    $run_com = mysqli_query($con, $get_com);
+
+    while($row = mysqli_fetch_array($run_com)){
+        $com = $row['text'];
+        $com_name = $row['user'];
+	}
+
 	$per_page = 100;
 
 	if(isset($_GET['page'])){
@@ -18,6 +31,7 @@ function get_posts(){
 
 	$run_posts = mysqli_query($con, $get_posts);
 
+
 	while($row_posts = mysqli_fetch_array($run_posts)){
 
 		$post_id = $row_posts['ID'];
@@ -28,7 +42,7 @@ function get_posts(){
 		$run_user = mysqli_query($con,$user);
 		$row_user = mysqli_fetch_array($run_user);
 
-		$user_name = $row_user['username'];
+		$user_name = $row_posts['username'];
 
 		//now displaying posts from database
 
@@ -43,8 +57,8 @@ function get_posts(){
 						<p></p>
 						</div>
 						<div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;'>$user_name</a></h3>
 							<h4>Post no. $post_id</h4>
+							<p>Posted by $user_name</p>
 						</div>
 						<div class='col-sm-4'>
 						</div>
@@ -54,8 +68,11 @@ function get_posts(){
 							<img id='posts-img' src='uploads/$upload_image'>
 						</div>
 					</div><br>
-					<textarea class='comment-area'></textarea> 
-					<a href='comments.php?post_id=$post_id' style='float:right;'><button class='btn btn-info' name='com'>Comment</button></a><br>
+					<p>$user_name commented: </p>
+					<form action='insert_comment.php' method='post'>
+					<input type='hidden' value='$post_id' name='post_ID'> </input>
+					<textarea class='comment-area' name='comment-area'></textarea> 
+					<center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
 				</div>
 				<div class='col-sm-3'>
 				</div>
@@ -74,8 +91,8 @@ function get_posts(){
 						<p></p>
 						</div>
 						<div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;'>$user_name</a></h3>
 							<h4>Post no. $post_id</h4>
+							<p>Posted by $user_name</p>
 						</div>
 						<div class='col-sm-4'>
 						</div>
@@ -86,14 +103,17 @@ function get_posts(){
 							<img id='posts-img' src='uploads/$upload_image' style='height:350px;'>
 						</div>
 					</div><br>
-					<textarea class='comment-area'></textarea> 
-					<a href='comments.php?post_id=$post_id' style='float:right;'><button class='btn btn-info' name='com'>Comment</button></a><br>
-				</div>
-				<div class='col-sm-3'>
-				</div>
-			</div><br><br>
-			";
-		}
+					<form action='insert_comment.php?post_id=<?php echo $post_id; ?>' method='post'>
+					<input type='hidden' value='$post_id' name='post_ID'> </input>
+					<textarea class='comment-area' name='comment-area'></textarea> 
+					<center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
+					</div>
+					<div class='col-sm-3'>
+					</div>
+				</div><br><br>
+				";
+			}
+	
 
 
 		
@@ -108,14 +128,16 @@ function get_posts(){
 						<p></p>
 						</div>
 						<div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' >$user_name</a></h3>
 							<h4>Post no. $post_id</h4>
+							<p>Posted by $user_name</p>
 						</div>
 						<div class='col-sm-4'>
 						</div>
 					</div>
-					<textarea class='comment-area'></textarea> 
-					<a href='comments.php?post_id=$post_id' style='float:right;'><button class='btn btn-info' name='com'>Comment</button></a><br>
+					<form action='insert_comment.php?post_id=<?php echo $post_id; ?>' method='post'>
+					<input type='hidden' value='$post_id' name='post_ID'> </input>
+					<textarea class='comment-area' name='comment-area'></textarea> 
+					<center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
 					<div class='row'>
 					<div class='col-sm-12'>
 						<h3><p>$content</p></h3>
@@ -127,33 +149,9 @@ function get_posts(){
 			</div><br><br>
 			";
 		}
-
-
-		include ("comments.php");
-
-		echo"
-		<div class='row'>
-			<div class='col-md-6 col-md-offset-3'>
-				<div class='panel panel-info'>
-				<div class='panel-body'>
-					<form action='' method='post' class='form-inline'>
-						<textarea class='comment-area pb-cmnt-textarea' name='comment'></textarea> 
-						<button class='btn btn-info pull-right' name='reply'>Comment</button><br>
-					</form>
-				</div>
-				</div>
-					</div>
-				</div>";
 	}
-
-		
-
 		}
 
 
-function get_comments(){
-	global $con;
-
-}
 
 ?>

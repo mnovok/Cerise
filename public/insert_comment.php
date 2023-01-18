@@ -2,6 +2,8 @@
     
     $con = mysqli_connect("localhost", "root", "", "cerise") or die("Error " . mysqli_error($con));
 
+    $post_ID = $_POST['post_ID'];
+
     if(isset($_POST['com'])){
 
         $comment = htmlentities($_POST['comment-area']); 
@@ -15,7 +17,7 @@
 
         
     else{
-        $que = "INSERT INTO comments(text) VALUES('" . $comment . "')";
+        $que = "INSERT INTO comments(text, post_ID) VALUES('" . $comment . "' , '" . $post_ID."')";
 
         if(mysqli_query($con, $que))
         {

@@ -28,6 +28,7 @@ require 'insert_comment.php';
             <label class="btn btn-warning" id="upload_image_button">Select Image
             <input type="file" name="upload_image" size="30">
             </label>
+            <input type='hidden' value="<?php echo $_SESSION['username'];?>" name='username'> </input>
             <button type="submit" id="btn-post" class="btn btn-success" name="sub">Post</button>
             </form>
             </center>
