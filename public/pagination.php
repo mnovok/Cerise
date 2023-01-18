@@ -30,3 +30,11 @@
 
 	echo"<a href='home.php?page=$total_pages'>Last Page</a></div>";
 ?>
+
+<div class="row">
+          <div class="col-sm-12">
+            <center><h2><strong>News Feed</strong></h2><br></center>
+            <label>Image : </label><br><img src="uploads/<?php echo $row['path']; ?> " alt="image">
+            <p class="img-description"><?php echo $row['description'];?></p>
+          </div>
+        </div>

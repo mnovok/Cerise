@@ -1,12 +1,16 @@
 <?php session_start();
-require 'insert.php';?>
+require 'insert.php';
+require 'insert_comment.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cerise</title>
         <link rel="stylesheet" href="css/main.css?v=<?php echo time(); ?>" />
         <link rel="stylesheet" href="css/home.css?v=<?php echo time(); ?>" />
+        <link rel="stylesheet" href="css/feed.css?v=<?php echo time(); ?>" /
         <link rel="icon" href="images/cherry.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +20,6 @@ require 'insert.php';?>
       </head>
 
       <body style="background-color:#FFE5EE;">
-
         <div class="insert" >
           <div id="insert_post" class="col-sm-12" style="background-color:#FFE5EE;">
             <center>
@@ -31,15 +34,15 @@ require 'insert.php';?>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-12">
-            <center><h2><strong>News Feed</strong></h2><br></center>
-            <label>Image : </label><br><img src="uploads/<?php echo $row['path']; ?> " alt="image">
-            <p class="img-description"><?php echo $row['description'];?></p>
-          </div>
-        </div>
+        <?php
+    require_once('functions.php');
+    echo get_posts();
+    ?>
 
         <script src="scripts/main.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="scripts/feed.js" type="text/javascript">
+        </script>
         <?php print $_SESSION["username"];?>
         <footer>
           <p>Copyright Cerise @ 2023 FESB</p>

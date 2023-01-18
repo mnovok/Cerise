@@ -56,8 +56,10 @@ if(isset($_POST['sub']))
 
     if(mysqli_query($con, $que))
     {
-        echo "<script type='text/javascript'>alert('Posted succesfully.');</script>";
+        echo "<script type='text/javascript'>alert('Posted succesfully. Your Feed has just updated a moment ago!');</script>";
+        echo "<script>window.open('homepage.php', '_self')</script>";
     }
+    
     else
     {
         echo "<script type='text/javascript'>alert('error while inserting....');</script>";
@@ -67,18 +69,14 @@ if(isset($_POST['sub']))
 }
  
  //Get Last Inserted Id
- $last_id = mysqli_insert_id($con);
+ $lastId = mysqli_insert_id($con);
 
  //Fetch Qquery
- $que = "SELECT * FROM posts";
+ $que = "SELECT * FROM posts ORDER BY ID desc";
  $result = mysqli_query($con, $que);
- $row=mysqli_fetch_assoc($result);
+$row=mysqli_fetch_assoc($result);
 
-while($rows=mysqli_fetch_assoc($result))
-{
-    $image = $rows['path'];
-    echo "<img src='$image' >";
-    echo "<br>";
-} 
 
+
+           
 ?>

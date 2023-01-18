@@ -1,0 +1,64 @@
+.loader {
+  display:inline-block;
+  border: 5px dotted lightgray;
+  border-radius: 50%;
+  border-top: 5px solid gray;
+  border-bottom:5px solid gray;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+.loader-symbol{
+text-align:center}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.feed-img {
+  height: auto; 
+  width: auto; 
+  max-width: 400px; 
+  max-height: 400px;
+  display: block;
+}
+
+.img-container {
+  width: 200px;
+  height: 120px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left top, right top, from(#d4083f), to(#ec13d9));
+  background-image: -webkit-linear-gradient(left, #d4083f 0%, #ec13d9 100%);
+  background-image: linear-gradient(to right, #d4083f 0%, #ec13d9 100%);
+  height: 100px;
+}
+
+.comment-area{
+	min-width: 350px;
+	max-width: 100%;
+}
