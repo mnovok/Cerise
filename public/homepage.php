@@ -1,6 +1,7 @@
 <?php session_start();
 require 'insert.php';
 require 'insert_comment.php';
+require 'profile.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,25 +21,32 @@ require 'insert_comment.php';
       </head>
 
       <body style="background-color:#FFE5EE;">
+
         <div class="insert" >
           <div id="insert_post" class="col-sm-12" style="background-color:#FFE5EE;">
             <center>
             <form action="homepage.php?id=<?php echo $_SESSION['username']; ?>" method="post" id="f" enctype="multipart/form-data">
-            <textarea class="form-control" id="content" rows="4" name="content" placeholder="What are you up to, <?php echo $_SESSION['username']; ?>?"></textarea><br>
+            <textarea class="form-control" id="content" rows="4" name="content" placeholder="What are you up to, <?php echo $_SESSION['username']; ?>?"></textarea>
             <label class="btn btn-warning" id="upload_image_button">Select Image
             <input type="file" name="upload_image" size="30">
             </label>
             <input type='hidden' value="<?php echo $_SESSION['username'];?>" name='username'> </input>
-            <button type="submit" id="btn-post" class="btn btn-success" name="sub">Post</button>
+            <button type="submit" id="btn-post" class="btn btn-success" name="sub">Post</button>            <?php
+            require_once('profile.php');
+            echo get_profile(); ?>
             </form>
             </center>
           </div>
         </div>
 
-        <?php
-    require_once('functions.php');
-    echo get_posts();
-    ?>
+        
+   
+
+              <?php
+          require_once('functions.php');
+          echo get_posts();    
+          ?>
+
 
         <script src="scripts/main.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>

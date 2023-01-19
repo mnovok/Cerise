@@ -2,7 +2,7 @@
     
     $con = mysqli_connect("localhost", "root", "", "cerise") or die("Error " . mysqli_error($con));
 
-    $post_ID = $_POST['post_ID'];
+    //$post_ID = $_POST['post_ID'];
 
     if(isset($_POST['com'])){
 
@@ -17,7 +17,7 @@
 
         
     else{
-        $que = "INSERT INTO comments(text, post_ID) VALUES('" . $comment . "' , '" . $post_ID."')";
+        $que = "INSERT INTO comments(text, post_ID, user) VALUES('" . $comment . "' , '" . $post_ID."' , '" . $user_name . "')";
 
         if(mysqli_query($con, $que))
         {

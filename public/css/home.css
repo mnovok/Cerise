@@ -26,7 +26,6 @@ label{
     font-size: 15px;
 }
 
-
 input[type="file"]{
 	display: none;
 }
@@ -95,4 +94,8 @@ textarea{
     padding: 0.3em;
     text-align: justify;
     position: relative;
+}
+
+.right-box{
+	float: right;
 }

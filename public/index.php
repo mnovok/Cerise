@@ -27,9 +27,9 @@ $_SESSION['username'] = "";
                         <input type="submit" hidden >
                         <?php 
                          if(isset($_POST['nameinput']))
-                            $_SESSION['username'] = $_POST['nameinput'];
+                            {$_SESSION['username'] = $_POST['nameinput'];}
                          else
-                         $_SESSION['username'] = "Cerise Guest"; ?>
+                          {$_SESSION['username'] = "CeriseGuest";} ?>
                           </form></div>
                           <div class="vertical-center"> 
                           <a href="homepage.php"><button type="submit" id="to-home-btn">Submit</button></a>
