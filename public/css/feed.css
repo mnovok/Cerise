@@ -136,3 +136,6 @@ text-align:center}
   padding: 2px;
   margin: 1px;
 }
+#quote {
+  font-style: italic;
+}
