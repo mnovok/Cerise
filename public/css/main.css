@@ -1,0 +1,134 @@
+html {
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100vh;
+    min-width: 300px;
+    overflow-x: hidden;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Sora', sans-serif;
+    margin: 0;
+    --primary-color: #de3163;;
+    --light-primary-color: #ff86a8;;
+    --secondary-color: #d4083f;
+    --light-secondary-color: #ffa2a2;
+    --white-trans:rgba(255, 255, 255, 0.4);
+    width: 100%;
+    place-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+#index{
+    background-image: url("https://wallpapercave.com/wp/wp5684477.jpg");
+}
+
+
+#login-welcome {
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   text-align: center;
+   padding: 2px;
+   color: #fff;
+   font-style: italic;
+   margin-top: 50px;
+}
+
+.login-container{
+    background-color:  var(--primary-color);
+    display: flex;
+    align-self: center;
+    margin: 0px;
+    height:50%;
+    width: 60%;
+    border-radius: 1rem;
+    opacity: 90%;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#name-input{
+    background:var(--light-secondary-color);
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 200px;
+    max-width: 800px;
+    width: 800px;
+    min-width: 50px;
+    padding: 0.5em;
+    margin-bottom: 10em;
+    border-radius: 20px;
+}
+
+button {
+    background-color: #fff;
+    border-radius: 290486px;
+    box-shadow: 0 1rem 2rem --light-primary-color;
+    color: var(--primary-color);
+    display: inline-block;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 1.25em 2em;
+    text-shadow: none;
+    transition-property: box-shadow, transform;
+    user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    will-change: box-shadow, transform; 
+    font-family: "Montserrat", "Quicksand", sans-serif;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+button:hover {
+    box-shadow: 0 1.5rem 3rem --light-primary-color;
+    transform: scale(1.02) translateY(-4px);
+    color:darkseagreen;
+}
+
+button:active {
+    box-shadow: 0 0.5rem 1rem --light-primary-color;
+    transform: scale(0.98) translateY(-2px);
+}
+
+#to-home-btn{
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-secondary-color);
+    padding: 0.01em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

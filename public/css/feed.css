@@ -1,0 +1,138 @@
+body {
+  --primary-color: #de3163;;
+  --light-primary-color: #ff86a8;;
+  --secondary-color: #d4083f;
+  --light-secondary-color: #ffa2a2;
+}
+
+.loader {
+  display:inline-block;
+  border: 5px dotted lightgray;
+  border-radius: 50%;
+  border-top: 5px solid gray;
+  border-bottom:5px solid gray;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+.loader-symbol{
+text-align:center}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.feed-img {
+  height: auto; 
+  width: auto; 
+  max-width: 400px; 
+  max-height: 400px;
+  display: block;
+}
+
+.img-container {
+  width: 200px;
+  height: 120px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left top, right top, from(#d4083f), to(#ec13d9));
+  background-image: -webkit-linear-gradient(left, #d4083f 0%, #ec13d9 100%);
+  background-image: linear-gradient(to right, #d4083f 0%, #ec13d9 100%);
+  height: 100px;
+}
+
+.comment-area{
+	min-width: 350px;
+	max-width: 100%;
+}
+
+#column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.5em;
+  grid-row-gap: 0.5em;
+}
+
+
+@media screen and (max-width: 1100px) {
+  .column {
+      grid-template-columns: 1fr;
+  }
+
+  .profile-img{
+    width: 50px;
+  }
+
+  .profile{
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 1101px){
+  .profile{
+    position: fixed;
+    bottom: 70px;
+  }
+}
+
+.profile-img{
+  border-radius: 50%;
+  width: 200px;
+}
+
+
+#home-button{
+  width: 25px;
+}
+
+.profile h1, h2, h3{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.profile h1, h2{
+  color: var(--secondary-color);
+}
+
+.profile h3{
+  color: #ec13d9;
+}
+
+#quote {
+  font-style: italic;
+}
+
+.com-name {
+  display: inline;
+  color: #d4083f;
+  font-weight: bold;
+}
+
+.com {
+  display: inline;
+  padding: 2px;
+  margin: 1px;
+}
