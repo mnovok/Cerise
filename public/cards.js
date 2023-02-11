@@ -1,10 +1,43 @@
 /* Get all elements with class heart-icon */
-const heartIcons = document.querySelectorAll('.car .heart-icon');
+const heartIcons = document.querySelectorAll('.card .heart-icon');
 for (let i = 0; i < heartIcons.length; i++) {
 	const heartIcon = heartIcons[i];
 	// add an event listener to each heart icon and define what happens on a click event
 	heartIcon.addEventListener('click', handleHeartIconClick);
 }
+
+
+function toggleHeart(e){
+	if ( e.classList.contains("fa-heart") ) {
+        e.classList.remove("fa-heart");
+        e.classList.add("fa-heart-o");
+
+    }
+    else {
+        e.classList.remove("fa-heart-o");
+        e.classList.add("fa-heart");
+
+    }
+}
+
+function toggleBookmark(e){
+
+	if (e.classList.contains("fa-bookmark") ) {
+        e.classList.remove("fa-bookmark");
+        e.classList.add("fa-bookmark-o");
+		click--;
+    }
+    else {
+        e.classList.remove("fa-bookmark-o");
+        e.classList.add("fa-bookmark");
+		click++;
+    }
+
+	document.getElementsByClassName('bookmark-no').textContent = click;
+
+}
+
+heart-icon.addEventListener("click", toggleHeart);
 
 async function handleHeartIconClick(e) {
 	
@@ -36,8 +69,6 @@ try {
 } catch (error) {
 	throw new Error(error.message || error);
 }
-
-
 }
 
 const starElements = document.querySelectorAll('.card .bookmark-icon');
