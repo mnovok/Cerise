@@ -136,6 +136,23 @@ text-align:center}
   padding: 2px;
   margin: 1px;
 }
-#quote {
+
+.col-sm-6{
+  background-color: #f1c1cc;
+}
+
+h4 {
+  color: #ec13d9;
+}
+
+.posted{
   font-style: italic;
+}
+
+.bookmkark-icon{
+  float: right;
+}
+
+.fa{
+  cursor: pointer;
 }

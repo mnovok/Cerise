@@ -1,5 +1,5 @@
 <?php
-require_once("cards.php");
+require_once("functions.php");
 
 // function that we call from our JS code that processes the request and calls actions that execute queries
 function processRequest(){
@@ -7,10 +7,12 @@ function processRequest(){
 
     // action that was called
     switch ($action) {
-      case "toggleCardLike":
+      case 'toggleCardLike':
         processToggleCardLike();
         break;
-
+      case 'toggleStar':
+        //processToggleStar();
+        break;
       default:
       echo(json_encode(array(
          "success" => false,
@@ -26,31 +28,26 @@ function getRequestParameter($key) {
    return isset($_REQUEST[$key]) ? $_REQUEST[$key] : "";
 }
 
-// http://pzi.fesb.hr/NovokmetM/vjezba9pocetak/API.php
-
 //API.php?action=toggleCardLike&id=1&liked=1
-
 function processToggleCardLike(){
   $success = false;
   $reason = "";
 
-  $id = getRequestParameter('id');
-  $liked = getRequestParameter('liked');
+  $id = getRequestParameter("post_id");
+  $liked = getRequestParameter("liked");
 
-  if(is_numeric($id) && is_numeric($liked)){
-   
+  if (is_numeric($id) && is_numeric($liked)) {
     toggleCardLike($id, $liked);
-    $success = true; //sve dobro proslo
-  }
-
-  else{
+    $success = true;
+  } 
+  else {
     $success = false;
-    $reason = "Needs id:number; liked:number";
+    $reason = "Needs id:number; like:number";
   }
 
   echo(json_encode(array(
-    "success" => $success,
-    "reason" => $reason
+  "success" => $success,
+  "reason" => $reason
   )));
 }
 

@@ -2,6 +2,7 @@
 require 'insert.php';
 require 'insert_comment.php';
 require 'profile.php';
+require 'API.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,15 +12,19 @@ require 'profile.php';
         <title>Cerise</title>
         <link rel="stylesheet" href="css/main.css?v=<?php echo time(); ?>" />
         <link rel="stylesheet" href="css/home.css?v=<?php echo time(); ?>" />
-        <link rel="stylesheet" href="css/feed.css?v=<?php echo time(); ?>" /
+        <link rel="stylesheet" href="css/feed.css?v=<?php echo time(); ?>" />
         <link rel="icon" href="images/cherry.ico" />
+        <link rel="stylesheet" href="css/font-awesome.min.css"/>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&display=swap" rel="stylesheet"/>
         <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css”>
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&display=swap" rel="stylesheet"/>
+        <script src="https://kit.fontawesome.com/fbcc69f44a.js"crossorigin="anonymous"></script>
+        <script src="cards.js"></script>
       </head>
-
       <body style="background-color:#FFE5EE;">
 
         <div class="insert" >
@@ -40,8 +45,6 @@ require 'profile.php';
         </div>
 
         
-   
-
               <?php
           require_once('functions.php');
           echo get_posts();    

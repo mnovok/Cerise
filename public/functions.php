@@ -1,4 +1,5 @@
 <?php
+require_once("databaseaccess.php");
 
 $con = mysqli_connect("localhost","root","","cerise") or die("Connection was not established");
 
@@ -28,6 +29,10 @@ function get_posts(){
 		$post_id = $row_posts['ID'];
 		$content = substr($row_posts['description'], 0,40);
 		$upload_image = $row_posts['path'];
+		$liked = $row_posts['liked'];
+		$likes = $row_posts['likes'];
+		$bookmarked = $row_posts['bookmarked'];
+		$bookmarks = $row_posts['bookmarks'];
 
 		$user = "select * from posts";
 		$run_user = mysqli_query($con,$user);
@@ -46,18 +51,19 @@ function get_posts(){
 				<div id='posts' class='col-sm-6'>
 					<div class='row'>
 						<div class='col-sm-2'>
-						<p></p>
+						<i class='fa fa-bookmark-o bookmark-icon clickable-icon'></i><span>$bookmarks</span>
 						</div>
 						<div class='col-sm-6'>
 							<h4>Post no. $post_id</h4>
-							<p>Posted by $user_name</p>
+							<p class='posted'>Posted by $user_name</p>
 						</div>
 						<div class='col-sm-4'>
 						</div>
 					</div>
 					<div class='row'>
-						<div class='col-sm-12'>
+						<div class='card' data-card-id='$post_id'>
 							<img id='posts-img' src='uploads/$upload_image'>
+							<i class='fa fa-heart-o heart-icon clickable-icon' aria-hidden='true'></i><span class='number-of-likes'>$likes</span>
 						</div>
 					</div><br> " ?>
 					<?php  
@@ -102,19 +108,20 @@ function get_posts(){
 				<div id='posts' class='col-sm-6'>
 					<div class='row'>
 						<div class='col-sm-2'>
-						<p></p>
+						<i class='fa fa-bookmark-o bookmark-icon clickable-icon'></i><span>$bookmarks</span>
 						</div>
-						<div class='col-sm-6'>
-							<h4>Post no. $post_id</h4>
-							<p>Posted by $user_name</p>
+						<div class='col-sm-6' class='card'>
+						<h4>Post no. $post_id</h4>
+							<p class='posted'>Posted by $user_name</p>
 						</div>
 						<div class='col-sm-4'>
 						</div>
 					</div>
 					<div class='row'>
-						<div class='col-sm-12'>
-							<p>$content</p>
+						<div class='card' data-card-id='$post_id'>
+							<center><p>$content</p></center>
 							<img id='posts-img' src='uploads/$upload_image' style='height:350px;'>
+							<span><i class='fa fa-heart-o heart-icon clickable-icon' aria-hidden='true'></i><span class='number-of-likes'>$likes</span>
 						</div>
 					</div><br>" ?>
 					<?php  
@@ -157,13 +164,14 @@ function get_posts(){
 				<div id='posts' class='col-sm-6'>
 					<div class='row'>
 						<div class='col-sm-2'>
-						<p></p>
+						<i class='fa fa-bookmark-o bookmark-icon clickable-icon'></i><span>$bookmarks</span>
 						</div>
 						<div class='col-sm-6'>
 							<h4>Post no. $post_id</h4>
-							<p>Posted by $user_name</p>
+							<p class='posted'>Posted by $user_name</p>
 						</div>
-						<div class='col-sm-4'>
+						<div class='card' data-card-id='$post_id'>
+						<i class='fa fa-heart-o heart-icon clickable-icon' aria-hidden='true'></i><span class='number-of-likes'>$likes</span>
 						</div>
 					</div>" ?>
 					<?php  
@@ -181,7 +189,6 @@ function get_posts(){
 							echo"
 							<p class = 'com-name'>$com_name</p><p class = 'com'> $com </p><br> ";
 						}
-
 							}
 					?>
 					<?php echo"
@@ -192,7 +199,7 @@ function get_posts(){
 					<center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
 					<div class='row'>
 					<div class='col-sm-12'>
-						<h3><p>$content</p></h3>
+					<center><p>$content</p></center>
 					</div>
 				</div><br>
 				</div>
@@ -204,6 +211,9 @@ function get_posts(){
 	}
 		}
 
-
-
+function toggleCardLike($post_id, $liked){
+	getDbAccess()->executeQuery("UPDATE posts SET liked='$liked' WHERE ID='$post_id';");
+		}
+		
 ?>
+
