@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $con = mysqli_connect("localhost", "root", "", "cerise") or die("Error " . mysqli_error($con));
+    $con = mysqli_connect("localhost", "NovokmetM", "NovokmetM_2022", "NovokmetM") or die("Error " . mysqli_error($con));
 
     $post_ID = $_POST['post_ID'];
     $user_name = $_SESSION['username'];

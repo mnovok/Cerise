@@ -1,5 +1,4 @@
 <?php 
-error_reporting(0);
 session_start();
 require 'insert.php';
 require 'insert_comment.php';

@@ -2,7 +2,7 @@
 error_reporting(0);
 
 
-$con = mysqli_connect("localhost", "root", "", "cerise") or die("Connection was not established");
+$con = mysqli_connect("localhost", "NovokmetM", "NovokmetM_2022", "NovokmetM") or die("Connection was not established");
 
 function get_profile(){
 

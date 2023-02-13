@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "cerise") or die("Error " . mysqli_error($con));
+$con = mysqli_connect("localhost", "NovokmetM", "NovokmetM_2022", "NovokmetM") or die("Error " . mysqli_error($con));
 
 $msg = ""; 
 

@@ -1,6 +1,6 @@
 <?php
 function getDbAccess(){
-    return new DatabaseAccess("localhost", "root", "", "cerise");
+    return new DatabaseAccess("localhost", "NovokmetM", "NovokmetM_2022");
 }
 
 class DatabaseAccess {
