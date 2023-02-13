@@ -1,15 +1,13 @@
 <?php
 
-$con = mysqli_connect("localhost", "NovokmetM", "NovokmetM_2022", "NovokmetM") or die("Error " . mysqli_error($con));
+$con = mysqli_connect("127.0.0.1", "NovokmetM", "NovokmetM_2022", "NovokmetM", 3306) or die("Error " . mysqli_error($con));
 
 $msg = ""; 
 
 // check if the user has clicked the button "UPLOAD" 
 
-
 if(isset($_POST['sub']))
 {
-
     $imgFile = $_FILES['upload_image']['name'];
     $tmp_dir = $_FILES['upload_image']['tmp_name'];
     $imgSize = $_FILES['upload_image']['size']; 
@@ -28,7 +26,7 @@ if(isset($_POST['sub']))
 
     $upload_dir = 'uploads/'; // upload directory
     
-    $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+    $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
     
     // valid image extensions
     $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
@@ -36,13 +34,11 @@ if(isset($_POST['sub']))
     // rename uploading image
     $coverpic = random_int(1, 10000).".".$imgExt;
 
-
-    
     // allow valid image file formats
     if(in_array($imgExt, $valid_extensions)){ 
     // Check file size '5MB'
         if($imgSize < 5000000) {
-        move_uploaded_file($tmp_dir, $upload_dir.$coverpic);
+        move_uploaded_file($tmp_dir,  $upload_dir.$coverpic);
         }
         else{
         $errMSG = "Sorry, your file is too large.";
@@ -66,7 +62,7 @@ if(isset($_POST['sub']))
     
     else
     {
-        echo "<script type='text/javascript'>alert('error while inserting....');</script>";
+        echo "<script type='text/javascript'>alert('Error while inserting....');</script>";
     }
  }
  } }
@@ -80,7 +76,4 @@ if(isset($_POST['sub']))
  $result = mysqli_query($con, $que);
 $row=mysqli_fetch_assoc($result);
 
-
-
-           
 ?>

@@ -1,7 +1,6 @@
 <?php
-require_once("databaseaccess.php");
 
-$con = mysqli_connect("localhost", "NovokmetM", "NovokmetM_2022", "NovokmetM") or die("Connection was not established");
+$con = mysqli_connect("127.0.0.1", "NovokmetM", "NovokmetM_2022", "NovokmetM",  3306) or die("Connection was not established");
 
 function get_posts(){
 	global $con;
@@ -19,10 +18,9 @@ function get_posts(){
 
 	$start_from = ($page-1) * $per_page;
 
-	$get_posts = "select * from POSTS ORDER by 1 DESC LIMIT $start_from, $per_page";
+	$get_posts = "SELECT * FROM posts ORDER by 1 DESC LIMIT $start_from, $per_page";
 
 	$run_posts = mysqli_query($con, $get_posts);
-
 
 	while($row_posts = mysqli_fetch_array($run_posts)){
 
@@ -144,7 +142,6 @@ function get_posts(){
 							echo"
 							<p class = 'com-name'>$com_name</p><p class = 'com'> $com </p><br> ";
 						}
-
 							}
 					?>
 					<?php echo"
@@ -218,7 +215,6 @@ function get_posts(){
 	}
 }
 
-
 function toggleCardLike($post_id, $liked, $likes){
 	$setLiked = "UPDATE posts SET liked='$liked' likes='$likes' WHERE ID='$post_id';";
 	$con = mysqli_connect("localhost","root","","cerise");
@@ -227,6 +223,8 @@ function toggleCardLike($post_id, $liked, $likes){
 function toggleCardBookmark($post_id, $bookmarked){
 	getDbAccess()->executeQuery("UPDATE posts SET bookmarked='$bookmarked' WHERE ID='$post_id';");
 		}	
-
+function addPost($imageUrl, $user_name, $description){
+			getDbAccess()->executeInsertQuery("INSERT INTO posts values ('0', '$user_name', '$imageUrl', '', '', '', '', '$description');");
+		}
 ?>
 

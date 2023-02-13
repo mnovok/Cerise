@@ -12,6 +12,9 @@ function processRequest(){
       case 'toggleCardBookmark':
         processToggleCardBookmark();
         break;
+      case 'addPost':
+        processAddPost();
+        break;
       default:
       echo(json_encode(array(
          "success" => false,
@@ -72,6 +75,33 @@ function processToggleCardBookmark(){
   "reason" => $reason
   )));
 }
+
+//API.php?action=addPost&imageUrl=asdfjgk&description=sth
+function processAddPost(){
+  $success =false;
+  $reason = "";
+  $id = 0;
+
+  $title = getRequestParameter('title');
+  $imageUrl = getRequestParameter('imageUrl');
+  $description = getRequestParameter('description');
+
+  if($title != "" && $imageUrl != "" && $description != ""){
+    $id = addPost($title, $imageUrl, $description);
+    $success = true;
+  }
+  else{
+    $success = false;
+    $reason = "Needs title, description and imageUrl";
+  }
+
+  echo(json_encode(array(
+    "success" => $success,
+    "reason" => $reason,
+    "id" => $id
+    )));
+}
+
 
 processRequest();
 

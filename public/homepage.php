@@ -1,9 +1,10 @@
 <?php 
+error_reporting(E_ERROR | E_PARSE);
 session_start();
 require 'insert.php';
 require 'insert_comment.php';
 require 'profile.php';
-require 'API.php';
+require_once ('functions.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -76,12 +77,12 @@ require 'API.php';
             require_once('profile.php');
             echo get_profile(); ?>
             </form>
+            <button onclick="prompt('Enter image path', 'uploads/2791.jpg');" id="add-post-button">ADD NEW POST</button>
             </center>
           </div>
         </div>
 
           <?php
-          require_once('functions.php');
           echo get_posts();    
           ?>
 
@@ -94,6 +95,4 @@ require 'API.php';
           <p>Copyright Cerise @ 2023 FESB</p>
         </footer>
       </body>
-
-
  </html>

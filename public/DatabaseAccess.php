@@ -1,6 +1,6 @@
 <?php
 function getDbAccess(){
-    return new DatabaseAccess("localhost", "NovokmetM", "NovokmetM_2022");
+    return new DatabaseAccess("127.0.0.1", "NovokmetM", "NovokmetM_2022");
 }
 
 class DatabaseAccess {
@@ -17,12 +17,12 @@ class DatabaseAccess {
 
 	public function executeQuery($query){
 		// open a connection
-		$mysqli = new mysqli("localhost", $this->_username, $this->_password, $this->_db);
+		$mysqli = new mysqli("127.0.0.1", $this->_username, $this->_password, $this->_db);
 
 		if ($mysqli) {
-			$mysqli->query('SET character_set_results=utf8');
-			$mysqli->query('SET character_set_client=utf8');
-			$mysqli->query('SET names utf8');
+		//	$mysqli->query('SET character_set_results=utf8');
+		//	$mysqli->query('SET character_set_client=utf8');
+		//	$mysqli->query('SET names utf8');
 
 			// execute the passed in query
 			$queryResponse = $mysqli->query($query);

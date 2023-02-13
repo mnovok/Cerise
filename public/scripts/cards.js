@@ -125,3 +125,49 @@ async function handleBookmarkIconClick(e) {
 	}
 	
 }
+
+const addPostButton = document.querySelector('#add-post-button');
+
+addPostButton.addEventListener('click', async (e) => {
+
+	const imageUrl = prompt('Enter image path', 'uploads/2791.jpg');
+	if (!imageUrl) {
+		return;
+	}
+
+	const description = prompt('Enter description', 'nice post');
+	if (!description) {
+		return;
+	}
+
+	try{
+		const serverResponse = await fetch(`API.php?action=addPost&imageUrl=${imageUrl}&description=${description}`);
+		const responseData = await serverResponse.json();
+		
+		if(!responseData.success){
+			
+			throw new Error(`Error while adding card: ${responseData.reason}`);
+		}
+
+		const cardTemplate = document.querySelector('#card-template');
+		// Creates an element based on template
+		const cardElement = document.importNode(cardTemplate.content, true);
+
+		// Fill the created card with content
+		cardElement.querySelector('img').src = imageUrl;
+		cardElement.querySelector('p').textContent = description;
+
+		// add event listeners to necessary places
+		cardElement.querySelector('.heart-icon').addEventListener('click', handleHeartIconClick);
+		cardElement.querySelector('.bookmark-icon').addEventListener('click', handlEBookmarkIconClick);
+
+		// Add the card to the DOM in the card container
+		const cardsContainer = document.querySelector('#right-box');
+		
+		cardsContainer.appendChild(cardElement);
+	}
+	catch(error){
+		throw new Error(error.message || error);
+	}
+	
+});
