@@ -31,8 +31,7 @@
             echo "<script type='text/javascript'>alert('error while inserting....');</script>";
         }
         
+        }
     }
-    }
-    }
-
+}
 ?>

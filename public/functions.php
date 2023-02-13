@@ -93,7 +93,7 @@ function get_posts(){
 					<input type='hidden' value='$post_id' name='post_ID'> </input>
 					<input type='hidden' value='$_SESSION[username]' name='user_name'> </input>
 					<textarea class='comment-area' name='comment-area'></textarea> 
-					<center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
+					<div class='center'><button type='submit' class='btn btn-info' name='com'>Comment</button></div><br></form>
 				</div>
 				<div class='col-sm-3'>
 				</div>
@@ -122,7 +122,7 @@ function get_posts(){
 					</div>
 					<div class='row'>
 						<div class='card' data-card-id='$post_id'>
-							<center><p>$content</p></center>
+							<p class='content'>$content</p>
 							<img id='posts-img' src='uploads/$upload_image' style='height:350px;'>
 							<span><i onclick='toggleHeart(this)' class='fa $heartClass heart-icon clickable-icon' aria-hidden='true'></i><span class='number-of-likes'>$likes</span>
 						</div>
@@ -149,7 +149,7 @@ function get_posts(){
 					<input type='hidden' value='$post_id' name='post_ID'> </input>
 					<input type='hidden' value='$user_name' name='user'> </input>
 					<textarea class='comment-area' name='comment-area'></textarea> 
-					<center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
+					<div class='center'><button type='submit' class='btn btn-info' name='com'>Comment</button></div><br></form>
 					</div>
 					<div class='col-sm-3'>
 					</div>
@@ -199,10 +199,10 @@ function get_posts(){
 					<input type='hidden' value='$post_id' name='post_ID'> </input>
 					<input type='hidden' value='$user_name' name='user'> </input>
 					<textarea class='comment-area' name='comment-area'></textarea> 
-					<center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
+					<div class='center'><button type='submit' class='btn btn-info' name='com'>Comment</button></div><br></form>
 					<div class='row'>
 					<div class='col-sm-12'>
-					<center><p>$content</p></center>
+					<p class='content'>$content</p>
 					</div>
 				</div><br>
 				</div>

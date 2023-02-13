@@ -45,7 +45,7 @@ require_once ('functions.php');
                 </div>
                 <div class='row'>
                   <div class='card' data-card-id=''>
-                    <center><p></p></center>
+                    <p></p>
                     <img id='posts-img' src='' style='height:350px;'>
                     <span><i  class='fa fa-heart heart-icon clickable-icon' aria-hidden='true'></i><span class='number-of-likes'></span>
                   </div>
@@ -55,7 +55,7 @@ require_once ('functions.php');
                 <input type='hidden' value='' name='post_ID'> </input>
                 <input type='hidden' value='' name='user'> </input>
                 <textarea class='comment-area' name='comment-area'></textarea> 
-                <center><button type='submit' class='btn btn-info' name='com'>Comment</button></center><br></form>
+                <button type='submit' class='btn btn-info' name='com'>Comment</button><br></form>
                 </div>
                 <div class='col-sm-3'>
                 </div>
@@ -66,19 +66,20 @@ require_once ('functions.php');
 
         <div class="insert" >
           <div id="insert_post" class="col-sm-12" style="background-color:#FFE5EE;">
-            <center>
+          <div class="posting">
             <form action="homepage.php?id=<?php echo $_SESSION['username']; ?>" method="post" id="f" enctype="multipart/form-data">
             <textarea class="form-control" id="content" rows="4" name="content" placeholder="What are you up to, <?php echo $_SESSION['username']; ?>?"></textarea>
             <label class="btn btn-warning" id="upload_image_button">Select Image
             <input type="file" name="upload_image" size="30">
             </label>
             <input type='hidden' value="<?php echo $_SESSION['username'];?>" name='username'> </input>
-            <button type="submit" id="btn-post" class="btn btn-success" name="sub">Post</button>            <?php
+            <button type="submit" id="btn-post" class="btn btn-success" name="sub">Post</button>  
+          </div>
+          
+          <?php
             require_once('profile.php');
             echo get_profile(); ?>
             </form>
-            <button onclick="prompt('Enter image path', 'uploads/2791.jpg');" id="add-post-button">ADD NEW POST</button>
-            </center>
           </div>
         </div>
 
@@ -90,9 +91,11 @@ require_once ('functions.php');
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="scripts/feed.js" type="text/javascript"></script>
         <script src="scripts/cards.js"></script>  
-        </script>
+
         <footer>
           <p>Copyright Cerise @ 2023 FESB</p>
         </footer>
+
       </body>
+
  </html>

@@ -50,5 +50,5 @@ $_SESSION['username'] = "";
     </footer>
 
     </body>
-
+    
 </html>
